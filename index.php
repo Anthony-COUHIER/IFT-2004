@@ -36,15 +36,18 @@ if (isset($_POST["login"]) and !isset($_SESSION['user'])) {
 	</head>
 
 	<body>
-		<form method="post">
-			<label type="text">Username</label> <br>
-			<input type="text" name="UTILISATEUR_MEM" placeholder="Username">
-			<br>
-			<label type="text">Password</label><br>
-			<input type="password" name="MOT_DE_PASSE_MEM" placeholder="Password">
+        <div>
+            <form method="post">
+                <label type="text">Username</label> <br>
+                <input type="text" name="UTILISATEUR_MEM" placeholder="Username">
+                <br>
+                <label type="text">Password</label><br>
+                <input type="password" name="MOT_DE_PASSE_MEM" placeholder="Password">
 
-			<br>
-			<input type="submit" name="login" value="login">
-		</form>
+                <br>
+                <input type="submit" name="login" value="login">
+            </form>
+        </div>
+        <?php require_once "footer.php"; ?>
 	</body>
 </html>

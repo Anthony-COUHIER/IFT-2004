@@ -3,13 +3,28 @@
         width: 100vw;
         height: 6rem;
         display: flex;
+        flex-direction: column;
         justify-content: center;
         align-items: center;
+        background-color: lightgray;
+    }
+
+    body {
+        display: flex;
+        flex-direction: column;
+        min-height: 100vh;
+    }
+
+    body>div {
+        flex: 1;
     }
 </style>
 
 <footer>
-Copyright © 2021 CRIPÉ. All Rights Reserved
-Affiche un message de copyright pour le CRIPÉ ainsi que votre numéro d’équipe, numéro de cours et la session
-Automne 2022. Est inclus dans toutes les pages de l’application
+    <div>
+        Team 33 - IFT-2004 - Automne 2022
+    </div>
+    <div>
+        Copyright © 2021 CRIPÉ. All Rights Reserved
+    </div>
 </footer>
