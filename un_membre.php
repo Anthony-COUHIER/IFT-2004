@@ -2,7 +2,7 @@
 
 require "utils.php";
 
-// loginPage();
+loginPage();
 
 if (empty($_GET['no_membre'])) {
     echo "Missing 'no_membre' query !";
