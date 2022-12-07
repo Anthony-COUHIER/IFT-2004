@@ -1,0 +1,22 @@
+Couhier Anthony	- admin
+Benarroche Ilan	- superviseur
+Fumey Julien	- Directeur
+Dir Paul		- Directeur (second, pas obligé, juste pour eviter que Julien ai tout)
+Del Reno		- Lambda
+
+================================================================
+|         NOM           |      ETAT       |   DEBUT   |    FIN |
+================================================================
+TP1 - Gestion de projet	| Termine		| -27 mois	| -28 mois
+TP2 - Gestion de projet	| Termine		| 16/10/21	| 16/11/21
+TP3 - Gestion de projet	| En cours		| 16/11/22	| 16/12/22
+Rendu 1 - Dev web		| Termine		| 24/09/14	| 30/10/14
+Rendu 2 - Dev web		| En cours		| 01/11/22	| 20/12/22
+Rendu 3 - Dev web		| Non Debute	| 03/01/22	| 05/02/22
+Lab1 - Base de donnee	| Termine		| 03/01/19	| 15/02/19
+
+
+DE01	|  Debute
+VE02	|  En verification
+CO03	|  En correction
+AP04	|  Approuve
