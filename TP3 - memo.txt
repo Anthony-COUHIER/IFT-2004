@@ -4,10 +4,10 @@ Fumey Julien	- Directeur
 Dir Paul		- Directeur (second, pas obligé, juste pour eviter que Julien ai tout)
 Del Reno		- Lambda
 
-================================================================
-|         NOM           |      ETAT       |   DEBUT   |    FIN |
-================================================================
-TP1 - Gestion de projet	| Termine		| -27 mois	| -28 mois
+=================================================================
+|			NOM			|		ETAT	|	DEBUT	|	FIN		|
+=================================================================
+TP1 - Gestion de projet	| Termine		| -28 mois	| -27 mois
 TP2 - Gestion de projet	| Termine		| 16/10/21	| 16/11/21
 TP3 - Gestion de projet	| En cours		| 16/11/22	| 16/12/22
 Rendu 1 - Dev web		| Termine		| 24/09/14	| 30/10/14
