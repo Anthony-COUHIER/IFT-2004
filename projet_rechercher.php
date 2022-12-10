@@ -28,6 +28,11 @@ require "utils.php";
 loginPage();
 
 // TODO RAJOUTER SI CANCEL
+
+if (isset($_POST["cancel"])) {
+    header("Location: http://localhost/tp3/liste_projets.php");
+    die;
+}
 if (isset($_POST["search"])) {
     $nom = $_POST['NOM_PRO'];
     $mnt = $_POST['MNT_ALLOUE_PRO'];
