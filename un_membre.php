@@ -4,8 +4,9 @@ require "utils.php";
 
 loginPage();
 
-if (empty($_GET['no_membre'])) {
+if (!isset($_GET['no_membre'])) {
     echo "Missing 'no_membre' query !";
+    return;
 }
 $noMem = $_GET['no_membre'];
 

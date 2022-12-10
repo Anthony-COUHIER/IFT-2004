@@ -4,6 +4,9 @@ require "utils.php";
 
 loginPage();
 $client = $_SESSION["client"];
+if (isset($_GET['no_projects'])) {
+    $sqlArray = '(' . join(',', $_GET['no_projects']) . ')';
+}
 ?>
 
 <style>
@@ -34,12 +37,19 @@ $client = $_SESSION["client"];
         <form method="post" action="liste_projets.php">
             <select size="20" name="projet">
                 <?php
-                $subquery = "(select NO_PROJET from TP3_EQUIPE_PROJET where NO_MEMBRE = " . $client['NO_MEMBRE'] . ")";
+                $subquery = "(select NO_PROJET from TP3_EQUIPE_PROJET where NO_MEMBRE = " . $client['NO_MEMBRE'];
+
+                if (isset($_GET['no_projects'])) {
+                    $subquery = $subquery . " and NO_PROJET in " . $sqlArray;
+                }
+                $subquery = $subquery . ")";
                 $query = "SELECT * FROM TP3_PROJET where NO_PROJET in $subquery order by DATE_DEBUT_PRO desc";
 
                 $stid = oci_parse($conn, $query);
+                echo $query;
                 oci_execute($stid);
                 ?>
+                qd
                 <?php while (($projet = oci_fetch_array($stid, OCI_ASSOC + OCI_RETURN_NULLS))) : ?>
                     <?php
                     if (!isset($first)) {
@@ -54,10 +64,16 @@ $client = $_SESSION["client"];
 
 
                 <!-- DISPLAY ARCHIVE PROJECTS -->
-                <?php if ($client['EST_ADMINISTRATEUR_MEM'] or $client['EST_SUPERVISEUR_MEM']) : ?>
+                <?php if (isAdminOrSupervisor()) : ?>
                     <?php
-                    $query = "select * from TP3_PROJET_ARCHIVE order by DATE_DEBUT_PRO desc";
+                    $query = "select * from TP3_PROJET_ARCHIVE";
+
+                    if (isset($_GET['no_projects'])) {
+                        $query = $query . " where NO_PROJET in " . $sqlArray;
+                    }
+                    $query = $query . " order by DATE_DEBUT_PRO desc";
                     $stid = oci_parse($conn, $query);
+                    echo $query;
                     oci_execute($stid);
                     ?>
                     <?php while (($archive = oci_fetch_array($stid, OCI_ASSOC + OCI_RETURN_NULLS))) : ?>
@@ -71,6 +87,7 @@ $client = $_SESSION["client"];
                         echo "<option " . $select . " value='" . $archive['NO_PROJET'] . "'>" . $archive['NOM_PRO'] . "</option>";
                         ?>
                     <?php endwhile; ?>
+
                 <?php endif; ?>
             </select>
             <input type="submit" value="Chercher" />
