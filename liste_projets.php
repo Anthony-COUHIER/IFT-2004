@@ -5,7 +5,7 @@ require "utils.php";
 loginPage();
 $client = $_SESSION["client"];
 if (isset($_GET['no_projects'])) {
-    $sqlArray = '(' . join(',', $_GET['no_projects']) . ')';
+    $sqlArray = $_GET['no_projects'];
 }
 ?>
 

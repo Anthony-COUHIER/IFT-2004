@@ -71,14 +71,9 @@ if (isset($_POST["search"])) {
     oci_execute($stid);
     $res = array();
 
-    $nrows = oci_fetch_all($stid, $res, null, null, OCI_FETCHSTATEMENT_BY_ROW);
-
-    $urlQuery = "?";
-    for ($i = 0; $i < $nrows; $i++) {
-        echo $res[$i]['NO_PROJET'];
-        $urlQuery = "$urlQuery" . "no_projects[]=" . $res[$i]['NO_PROJET'] . "&";
-    }
-    header("Location: http://localhost/tp3/liste_projets.php$urlQuery");
+    $nrows = oci_fetch_all($stid, $res);
+    $sqlArray = '(' . join(',', $res['NO_PROJET']) . ')';
+    header("Location: http://localhost/tp3/liste_projets.php?no_projects=$sqlArray");
     die;
 }
 ?>
