@@ -55,7 +55,7 @@ if (isset($_POST["search"])) {
         if (strlen($where) > 7) {
             $where = $where . " and ";
         }
-        $where = $where . "DATE_DEBUT_PRO = TO_DATE('$date', 'yyyy-mm-dd')";
+        $where = $where . "DATE_DEBUT_PRO = to_date('$date', 'yyyy-mm-dd')";
     }
 
     $client = $_SESSION["client"];
@@ -73,7 +73,9 @@ if (isset($_POST["search"])) {
 
     $nrows = oci_fetch_all($stid, $res);
     $sqlArray = '(' . join(',', $res['NO_PROJET']) . ')';
-    header("Location: http://localhost/tp3/liste_projets.php?no_projects=$sqlArray");
+    $_SESSION['search'] = true;
+    $_SESSION['searching'] = $sqlArray;
+    header("Location: http://localhost/tp3/liste_projets.php");
     die;
 }
 ?>
