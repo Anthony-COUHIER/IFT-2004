@@ -55,8 +55,7 @@ while (($row = oci_fetch_array($stid, OCI_ASSOC + OCI_RETURN_NULLS))) {
             Langue: <b><?= $membre['LANGUE_CORRESPONDANCE_MEM'] ?></b>
         </div>
         <div>
-            Display photo from web ou from db ???
-            Photo: <b><?= $membre['NOM_FICHIER_PHOTO_MEM'] ?></b>
+            <img src="<?= $membre['NOM_FICHIER_PHOTO_MEM'] ?>">
         </div>
     </div>
     <?php require 'footer.php' ?>
